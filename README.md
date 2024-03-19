@@ -7,6 +7,8 @@ Health calculator
 ## Casos de Uso
 ___
 
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica2/doc/CasosDeUso.JPG?raw=true)
+
 
 
 # PRACTICA 1
