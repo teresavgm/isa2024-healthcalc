@@ -1,10 +1,22 @@
 # isa2024-healtcalc
 Health calculator
 
-# Casos de Prueba
+# PRACTICA 2
+-------
+
+## Casos de Uso
 ___
 
-## Tests para el Metodo idealWeight
+
+
+# PRACTICA 1
+---
+
+
+## Casos de Prueba
+___
+
+### Tests para el Metodo idealWeight
 
 1. **Altura Positiva**: Comprobamos que el valor de la altura sea positivo. En caso contrario se lanzara una excepcion.
 
@@ -20,7 +32,7 @@ ___
 
 
 
-## Tests para el Metodo basalMetabolicRate
+### Tests para el Metodo basalMetabolicRate
 
 1. **Altura Positiva**: Comprobamos que el valor de la altura sea positivo. En caso contrario se lanzara una excepcion.
 
