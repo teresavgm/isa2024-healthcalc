@@ -1,4 +1,4 @@
-package uma.BDD;
+package test.java.uma.healthcalc.BDD;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
