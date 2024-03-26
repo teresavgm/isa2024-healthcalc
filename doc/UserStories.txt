@@ -1,0 +1,40 @@
+User Story: BMR
+
+As a user
+I want to calculate my basal metabolic rate (BMR)
+So that from it I can take steps to be healthier
+
+
+Acceptance Criteria
+
+Scenario 1: I give the program the correct parameters
+Given my gender, weight, height and age
+When I calculate my BMR
+Then the system return my BMR
+
+Scenario 2: I give the program incorrect parameters
+Given at least my gender, weight, height or age incorrectly
+When I calculate my BMR
+Then the system raises an exception
+
+
+
+User Story: ideal Weight
+
+As a user
+I want to calculate my ideal weight
+So that I could control my weight and take steps to be healthier
+
+
+Acceptance Criteria
+
+Scenario 1: I give the program the correct parameters
+Given my gender and height
+When I calculate my ideal weight
+Then the system return my ideal Weight
+
+Scenario 2: I give the program the incorrect parameters
+Given my height in negative or an unrecognizable gender
+When I calculate my ideal Weight
+Then the system raises an exception
+
