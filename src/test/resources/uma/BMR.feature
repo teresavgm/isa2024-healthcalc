@@ -4,28 +4,28 @@ Feature: Basal Metabolic Rate
 
     @tag1
     Scenario Outline: I give the program the correct parameters
-        Given my gender, weight, height and age
-        When I run this program
-        Then I should see my BMR
+        Given my gender <g>, weight <w>, height <h> and age <age> correctly
+        When I calcule my BMR
+        Then the system return my BMR <value> 
 
         Examples:
-            |  w  |  h  |  g  | age  |  value  | 
-            | 40  | 165 | 'm' |  15  |  1361   |      
-            | 35  | 165 | 'm' |  15  |  1145   |            
-            | 80  | 175 | 'm' |  30  |  1749   |            
-            | 90  | 180 | 'w' |  50  |  1614   |            
+            |  w  |  h  |  g  | age  |  value    | 
+            | 40  | 165 | 'm' |  15  |  1361.25  |      
+            | 35  | 165 | 'm' |  15  |  1311.25  |            
+            | 80  | 175 | 'm' |  30  |  1748.75  |            
+            | 90  | 180 | 'w' |  50  |  1614     |            
       
 
 
     @tag2
     Scenario Outline: I give the program incorrect parameters
-        Given at least my gender, weight, height or age incorrectly
-        When I run this program
+        Given at least my gender <g>, weight <w>, height <h> or age <age> incorrectly
+        When I calcule my BMR
         Then the system raises an exception
 
         Examples:
             |  w  |  h  |  g  | age  |
             | -40 | 165 | 'm' |  15  |      
             | 35  | -165| 'm' |  15  |           
-            | 80  | 175 |'men'|  30  |             
+            | 80  | 175 | 'h' |  30  |             
             | 90  | 180 | 'w' |  -50 |
