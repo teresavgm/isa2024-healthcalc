@@ -5,12 +5,12 @@ Health calculator
 ## Imagen del boceto inicial de la interfaz
 
 
-![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica4/Imagenes/BocetoInterfazGrafica.JPG?raw=true)
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica4/Imagenes/BocetoInterfazGrafica.PNG?raw=true)
 
 
 ## Imagen de la interfaz gráfica final
 
-![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica4/Imagenes/InterfazFinal.JPG?raw=true)
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica4/Imagenes/InterfazFinal.PNG?raw=true)
 
 
 
