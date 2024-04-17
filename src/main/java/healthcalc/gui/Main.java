@@ -1,3 +1,4 @@
+package healthcalc.gui;
 
 import java.awt.EventQueue;
 
