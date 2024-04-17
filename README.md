@@ -1,5 +1,21 @@
 # isa2024-healtcalc
 Health calculator
+# Practica 4 
+
+## Imagen del boceto inicial de la interfaz
+
+
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica4/Imagenes/BocetoInterfazGrafica.JPG?raw=true)
+
+
+## Imagen de la interfaz gráfica final
+
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica4/Imagenes/InterfazFinal.JPG?raw=true)
+
+
+
+# Practica 1
+
 
 # Casos de Prueba
 ___
