@@ -119,7 +119,7 @@ public class vista {
 		btnCalculateIdealWeight.setBounds(38, 96, 199, 67);
 		frame.getContentPane().add(btnCalculateIdealWeight);
 
-		btnCalculateBMR = new JButton("Calculate Basal MR");
+		btnCalculateBMR = new JButton("Calculate Basal BMR");
 		btnCalculateBMR.setFont(new Font("Sitka Subheading", Font.PLAIN, 17));
 		btnCalculateBMR.setBounds(251, 96, 188, 67);
 		frame.getContentPane().add(btnCalculateBMR);
