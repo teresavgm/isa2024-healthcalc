@@ -3,6 +3,19 @@ package healthcalc;
 
 public class HealthCalcImpl implements HealthCalc {
 
+private static HealthCalcImpl instance;
+
+private HealthCalcImpl(){
+}
+
+public static HealthCalcImpl getInstance(){
+    if(instance== null){
+        instance = new HealthCalcImpl();
+    }
+    return instance;
+}
+
+    
     @Override
     public float idealWeight(int height, char gender) throws Exception {
         // calculamos su peso ideal siguiendo la formula de Lorentz:
