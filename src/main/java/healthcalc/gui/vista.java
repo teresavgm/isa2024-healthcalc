@@ -113,7 +113,7 @@ public class vista {
 
 
 		
-		// Botones Cálculo de IdealWeight y BasalMR
+		// Botones C�lculo de IdealWeight y BasalMR
 		btnCalculateIdealWeight = new JButton("Calculate Ideal Weight");
 		btnCalculateIdealWeight.setFont(new Font("Sitka Subheading", Font.PLAIN, 17));
 		btnCalculateIdealWeight.setBounds(38, 96, 199, 67);
@@ -211,14 +211,14 @@ public class vista {
 	public void errorInputsIW(String er) {
 		JOptionPane.showMessageDialog(frame,
 				er,
-                "Entradas no validas para altura o género",
+                "Entradas no validas para altura o g�nero",
                 JOptionPane.ERROR_MESSAGE);
 	}
 	
 	public void errorInputsBMR(String er) {
 		JOptionPane.showMessageDialog(frame,
                 er,
-                "Entradas no válidas para altura, peso, género o edad",
+                "Entradas no v�lidas para altura, peso, g�nero o edad",
                 JOptionPane.ERROR_MESSAGE);
 	}
 	

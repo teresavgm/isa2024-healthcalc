@@ -1,6 +1,5 @@
 package healthcalc.gui;
 
-
 import java.awt.event.ActionListener;
 
 import healthcalc.HealthCalcImpl;
@@ -11,7 +10,8 @@ import java.awt.event.ActionEvent;
 
 public class controlador implements ActionListener{
 
-	private HealthCalcImpl calc = new HealthCalcImpl();
+	private HealthCalcImpl calc =  HealthCalcImpl.getInstance();
+
 	private vista vista;
 	
 	public controlador(HealthCalcImpl calc, vista window) {
