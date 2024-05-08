@@ -11,20 +11,23 @@ public class Adapter implements HealthHospital {
     @Override
     public double bmr(char genero, int edad, float altura, int peso) {
         try {
-            return healthCalc.basalMetabolicRate(peso, (int) altura, genero, edad);
+            float alturaCM = 100*altura;
+            float pesoKg = peso/1000;
+            return healthCalc.basalMetabolicRate(pesoKg, (int) alturaCM, genero, edad);
         } catch (Exception e) {
-            e.printStackTrace(); // Manejo apropiado de la excepción, dependiendo de los requisitos.
-            return 0; // Puedes devolver un valor predeterminado o manejar la excepción según sea necesario.
+            e.printStackTrace(); 
+            return 0; 
         }
     }
 
     @Override
     public int pesoIdeal(char genero, float altura) {
         try {
-            return (int) healthCalc.idealWeight((int) altura, genero);
+            float alturaCM = 100*altura;
+            return (int) healthCalc.idealWeight((int) alturaCM, genero);
         } catch (Exception e) {
-            e.printStackTrace(); // Manejo apropiado de la excepción, dependiendo de los requisitos.
-            return 0; // Puedes devolver un valor predeterminado o manejar la excepción según sea necesario.
+            e.printStackTrace(); 
+            return 0; 
         }
     }
 }
