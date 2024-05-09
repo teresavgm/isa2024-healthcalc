@@ -5,8 +5,6 @@ import java.util.List;
 
 public class HealthStatsProxy implements  HealthHospital, HealthStats {
 
-
-    public int pacientesTotales = 0;
     public List<Float> pesosList= new ArrayList<Float>();
     public List<Float> alturasList= new ArrayList<Float>();
     public List<Integer> edadesList= new ArrayList<Integer>();
@@ -23,7 +21,6 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
     }
 
 
-
     // Calculamos la altura media de todos los pacientes que han usado la calculadora
     @Override
     public float alturaMedia(){
@@ -32,7 +29,7 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
             suma+= i;
         }
 
-        return suma/pacientesTotales;
+        return suma/alturasList.size();
     }
     // Calculamos el peso medio de todos los pacientes que han usado la calculadora
     @Override
@@ -41,7 +38,7 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
         for(float i:pesosList){
             suma+= i;
         }
-        return suma/pacientesTotales;
+        return suma/numTotalPacientes();
     }
     // Calculamos la edad media de todos los pacientes que han usado la calculadora
     @Override
@@ -51,7 +48,7 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
             suma+= i;
         }
 
-        return suma/pacientesTotales;
+        return suma/numTotalPacientes();
     }
     // Calculamos el bmr medio de todos los pacientes que han usado la calculadora
     @Override
@@ -60,7 +57,7 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
         for(float i:bmrsList){
             suma+= i;
         }
-        return suma/pacientesTotales;
+        return suma/numTotalPacientes();
     }
     // Calculamos el número de hombres y de mujeres que han usado la calculadora
     @Override
@@ -74,7 +71,7 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
     // Calculamos el numero de personas que han usado la calculadora
     @Override
     public int numTotalPacientes(){
-            return pacientesTotales;
+            return alturasList.size();
     }
     
 
@@ -83,7 +80,6 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
 
     @Override
     public double bmr(char genero, int edad, float altura, int peso) {
-        pacientesTotales++;
         alturasList.add((float)altura);
         if(genero == 'w'){
             numW++;
@@ -102,7 +98,6 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
 
     @Override
     public int pesoIdeal(char genero, float altura) {
-        pacientesTotales++;
         alturasList.add((float)altura);
         if(genero == 'w'){
             numW++;
