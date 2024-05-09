@@ -5,12 +5,12 @@ import java.util.List;
 
 public class HealthStatsProxy implements  HealthHospital, HealthStats {
 
-    public List<Float> pesosList= new ArrayList<Float>();
-    public List<Float> alturasList= new ArrayList<Float>();
-    public List<Integer> edadesList= new ArrayList<Integer>();
-    public List<Float> bmrsList= new ArrayList<Float>();
-    public int numW;
-    public int numM;
+    private List<Float> pesosList= new ArrayList<Float>();
+    private List<Float> alturasList= new ArrayList<Float>();
+    private List<Integer> edadesList= new ArrayList<Integer>();
+    private List<Float> bmrsList= new ArrayList<Float>();
+    private int numW;
+    private int numM;
     private Adapter calculadora;
     
 
