@@ -12,6 +12,7 @@ public class MainProxy {
     double bmr1 = nuevaCalc.bmr('w', 25, (float)1.4, 45000);
     double bmr2 = nuevaCalc.bmr('m', 50, (float)1.8, 70000);
 
+    
     System.out.println("BMR Paciente 1: " + bmr1 );
     System.out.println("BMR Paciente 2: " + bmr2 );
     System.out.println("    ");

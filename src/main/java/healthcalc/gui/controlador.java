@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 
 import healthcalc.HealthCalcImpl;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 

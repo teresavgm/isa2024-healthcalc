@@ -1,10 +1,8 @@
 package healthcalc.gui;
 
-import java.awt.EventQueue;
 
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,7 +14,6 @@ import javax.swing.JButton;
 import javax.swing.JSpinner;
 
 import javax.swing.JTextField;
-import javax.swing.Spring;
 
 public class vista {
 

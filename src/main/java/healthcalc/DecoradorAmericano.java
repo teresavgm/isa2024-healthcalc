@@ -7,7 +7,7 @@ public class DecoradorAmericano extends DecoratorHealthHospital {
         //TODO Auto-generated constructor stub
     }
 
-    @Override
+    @Override               
     public int pesoIdeal(char genero,float alturaFt) throws Exception {
         //pasamos la altura introducida en pies a metros
         float alturaMetros = alturaFt * 0.3048f;

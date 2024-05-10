@@ -88,7 +88,6 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
         }        
         pesosList.add((float)peso);
         edadesList.add(edad);
-
         double bmr = calculadora.bmr(genero, edad, (float) altura, (int) peso);
         bmrsList.add((float)bmr);
         return  (float) bmr;

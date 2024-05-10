@@ -8,7 +8,7 @@ public interface HealthHospital {
      *   
      */
 
-    public double bmr(char genero, int edad, float altura, int peso);
+    public double bmr(char genero, int edad, float altura, int peso) throws Exception;
 
 
     
@@ -17,6 +17,6 @@ public interface HealthHospital {
      *   
      */
 
-    public int pesoIdeal(char genero, float altura);
+    public int pesoIdeal(char genero, float altura) throws Exception;
 
 }
