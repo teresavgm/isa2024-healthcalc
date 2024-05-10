@@ -1,6 +1,27 @@
 # isa2024-healtcalc
-Health calculator
+# Health calculator
+## Práctica 6: Patrones de diseño
+___
+### Implementación del patrón Singleton
+Diagrama de clases incluyendo el patrón Singleton, requerido en el ejercicio 2.
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica6/design_patterns/DiagramaSingleton.PNG?raw=true)
+
+
+### Implementación del patrón Adapter
+En el apartado a del ejercicio 3 he considerado el patrón adapter el más apropiado para la tarea requerida. En el siguiente diagrama de clases ha sido inlcuido dicho patrón:
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica6/design_patterns/DiagramaAdapter.PNG?raw=true)
+
+### Implementación del patrón Proxy
+Seguidamente, en el apartado b del ejercicio 3 he considerado el patrón Proxy el más apropiado para la tarea requerida. En el siguiente diagrama de clases el patrón indicado:
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica6/design_patterns/DiagramaProxy.PNG?raw=true)
+
+### Implementación del patrón Decorator
+Por último, en el apartado c del ejercicio 3 he considerado el patrón Decorator el más apropiado para la tarea requerida. En el siguiente diagrama de clases ha sido inlcuido dicho patrón (además de lo ya implementado anteriormente):
+![](https://github.com/teresavgm/isa2024-healthcalc/blob/practica6/design_patterns/DiagramaDecorator.PNG?raw=true)
+
+
 # Practica 4 
+___
 
 ## Imagen del boceto inicial de la interfaz
 
