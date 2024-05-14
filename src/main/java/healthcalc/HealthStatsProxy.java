@@ -74,14 +74,10 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
             return alturasList.size();
     }
     
-
-
-
-
     @Override
-    public double bmr(Gender genero, int edad, float altura, int peso) throws Exception {
-        alturasList.add((float)altura);
-        switch (genero) {
+    public double bmr(Paciente p) throws Exception {
+        alturasList.add((float)p.height());
+        switch (p.gender()) {
             case FEMALE:
                 numW++;
                 break;
@@ -89,19 +85,18 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
                 numM++;
                 break;
         }        
-        pesosList.add((float)peso);
-        edadesList.add(edad);
-        double bmr = calculadora.bmr(genero, edad, (float) altura, (int) peso);
+        pesosList.add((float)p.weight());
+        edadesList.add(p.age());
+        double bmr = calculadora.bmr(p);
         bmrsList.add((float)bmr);
         return  (float) bmr;
     
     }
 
-
     @Override
-    public int pesoIdeal(Gender genero, float altura) throws Exception {
-        alturasList.add((float)altura);
-        switch (genero) {
+    public int pesoIdeal(Paciente p) throws Exception {
+        alturasList.add((float)p.height());
+        switch (p.gender()) {
             case FEMALE:
                 numW++;
                 break;
@@ -109,8 +104,7 @@ public class HealthStatsProxy implements  HealthHospital, HealthStats {
                 numM++;
                 break;
         }         
-        float iw = calculadora.pesoIdeal(genero,(float) altura);
+        float iw = calculadora.pesoIdeal(p);
        
         return (int) iw;      }
-    
 }
