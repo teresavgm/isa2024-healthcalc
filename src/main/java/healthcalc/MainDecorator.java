@@ -14,8 +14,8 @@ public class MainDecorator {
         HealthHospital healthHospitalAmericana = new DecoradorAmericano(healthStatsProxy);
 
         // Comprobamos el peso ideal
-        int pesoIdealEU= healthHospitalEuropea.pesoIdeal('w', 1.65f);
-        int pesoIdealAM = healthHospitalAmericana.pesoIdeal('m',  5.5f);
+        int pesoIdealEU= healthHospitalEuropea.pesoIdeal(Gender.FEMALE, 1.65f);
+        int pesoIdealAM = healthHospitalAmericana.pesoIdeal(Gender.MALE,  5.5f);
 
         System.out.println(" ");  
          System.out.println(" ");
@@ -27,19 +27,19 @@ public class MainDecorator {
 
         
         //Pacientes europeos
-        healthHospitalEuropea.bmr('w', 23, 1.65f, 50000);
-        healthHospitalEuropea.bmr('m', 54, 1.82f, 70000);
+        healthHospitalEuropea.bmr(Gender.FEMALE, 23, 1.65f, 50000);
+        healthHospitalEuropea.bmr(Gender.MALE, 54, 1.82f, 70000);
 
         //Pacientes americanos
-        healthHospitalAmericana.bmr('w', 42, 6.5f, 190);
-        healthHospitalAmericana.bmr('m', 70, 5.3f, 150);
+        healthHospitalAmericana.bmr(Gender.FEMALE, 42, 6.5f, 190);
+        healthHospitalAmericana.bmr(Gender.MALE, 70, 5.3f, 150);
         System.out.println(" ");
 
         //Comprobacion de q se cambian las unidades correctamente
         System.out.println("Los siguiente pacientes deben tener el mismo BMR:");
 
-        healthHospitalEuropea.bmr('w', 20, 1.70f, 56000);
-        healthHospitalAmericana.bmr('w', 20, 5.57743f, 123);
+        healthHospitalEuropea.bmr(Gender.FEMALE, 20, 1.70f, 56000);
+        healthHospitalAmericana.bmr(Gender.FEMALE, 20, 5.57743f, 123);
         System.out.println(" ");
 
 
