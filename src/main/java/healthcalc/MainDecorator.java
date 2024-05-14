@@ -14,8 +14,18 @@ public class MainDecorator {
         HealthHospital healthHospitalAmericana = new DecoradorAmericano(healthStatsProxy);
 
         // Comprobamos el peso ideal
-        int pesoIdealEU= healthHospitalEuropea.pesoIdeal(Gender.FEMALE, 1.65f);
-        int pesoIdealAM = healthHospitalAmericana.pesoIdeal(Gender.MALE,  5.5f);
+        Paciente paciente1 = new Paciente(Gender.FEMALE, 25, (float)1.4, 45000);
+        Paciente paciente2 = new Paciente(Gender.MALE, 50, (float)1.8, 70000);
+        Paciente paciente3 = new Paciente(Gender.FEMALE, 23, 1.65f, 50000);
+        Paciente paciente4 = new Paciente(Gender.MALE, 54, 1.82f, 70000);
+        
+        Paciente paciente5 = new Paciente(Gender.FEMALE, 42, 6.5f, 190);
+        Paciente paciente6 = new Paciente(Gender.MALE, 70, 5.3f, 150);
+        Paciente paciente7 = new Paciente(Gender.FEMALE, 20, 1.70f, 56000);
+        Paciente paciente8 = new Paciente(Gender.FEMALE, 20, 5.57743f, 123);
+
+        int pesoIdealEU= healthHospitalEuropea.pesoIdeal(paciente1);
+        int pesoIdealAM = healthHospitalAmericana.pesoIdeal(paciente2);
 
         System.out.println(" ");  
          System.out.println(" ");
@@ -24,22 +34,20 @@ public class MainDecorator {
         System.out.println("Peso ideal paciente europeo 1: " + pesoIdealEU);
         System.out.println("Peso ideal paciente americano 1: " + pesoIdealAM);
         System.out.println(" ");
-
         
         //Pacientes europeos
-        healthHospitalEuropea.bmr(Gender.FEMALE, 23, 1.65f, 50000);
-        healthHospitalEuropea.bmr(Gender.MALE, 54, 1.82f, 70000);
-
+        healthHospitalEuropea.bmr(paciente3);
+        healthHospitalEuropea.bmr(paciente4);
         //Pacientes americanos
-        healthHospitalAmericana.bmr(Gender.FEMALE, 42, 6.5f, 190);
-        healthHospitalAmericana.bmr(Gender.MALE, 70, 5.3f, 150);
+        healthHospitalAmericana.bmr(paciente5);
+        healthHospitalAmericana.bmr(paciente6);
         System.out.println(" ");
 
         //Comprobacion de q se cambian las unidades correctamente
         System.out.println("Los siguiente pacientes deben tener el mismo BMR:");
 
-        healthHospitalEuropea.bmr(Gender.FEMALE, 20, 1.70f, 56000);
-        healthHospitalAmericana.bmr(Gender.FEMALE, 20, 5.57743f, 123);
+        healthHospitalEuropea.bmr(paciente7);
+        healthHospitalAmericana.bmr(paciente8);
         System.out.println(" ");
 
 

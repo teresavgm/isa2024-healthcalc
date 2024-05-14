@@ -9,8 +9,11 @@ public class MainProxy {
     HealthStatsProxy nuevaCalc = new HealthStatsProxy(calc);
 
     //Utilizamos la calculadora para introducir datos
-    double bmr1 = nuevaCalc.bmr(Gender.FEMALE, 25, (float)1.4, 45000);
-    double bmr2 = nuevaCalc.bmr(Gender.MALE, 50, (float)1.8, 70000);
+    Paciente paciente1 = new Paciente(Gender.FEMALE, 25, (float)1.4, 45000);
+    Paciente paciente2 = new Paciente(Gender.MALE, 50, (float)1.8, 70000);
+
+    double bmr1 = nuevaCalc.bmr(paciente1);
+    double bmr2 = nuevaCalc.bmr(paciente2);
 
     
     System.out.println("BMR Paciente 1: " + bmr1 );
