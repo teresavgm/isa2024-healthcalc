@@ -9,13 +9,13 @@ public class DecoratorHealthHospital implements HealthHospital {
     }
 
     @Override
-    public double bmr(char genero, int edad, float altura, int peso) throws Exception {
+    public double bmr(Gender genero, int edad, float altura, int peso) throws Exception {
         // TODO Auto-generated method stub
         return wrappeeHealthHospital.bmr(genero,edad, altura, peso);
     }
 
     @Override
-    public int pesoIdeal(char genero, float altura) throws Exception {
+    public int pesoIdeal(Gender genero, float altura) throws Exception {
         // TODO Auto-generated method stub
         return wrappeeHealthHospital.pesoIdeal(genero, altura);
     }
