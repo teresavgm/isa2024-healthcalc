@@ -8,23 +8,23 @@ public class DecoradorAmericano extends DecoratorHealthHospital {
     }
 
     @Override               
-    public int pesoIdeal(Gender genero,float alturaFt) throws Exception {
+    public int pesoIdeal(Paciente p) throws Exception {
         //pasamos la altura introducida en pies a metros
-        float alturaMetros = alturaFt * 0.3048f;
-        float pi = super.pesoIdeal(genero, alturaMetros);
+        float alturaMetros = p.height() * 0.3048f;
+        float pi = super.pesoIdeal(p);
 
         return (int) pi ;
     }
 
     @Override
-    public double bmr(Gender genero, int edad, float alturaFt, int pesoLb) throws Exception {
-        float alturaMetros = alturaFt * 0.3048f;
-        int pesoGr = (int) (pesoLb * 453.592);
+    public double bmr(Paciente p) throws Exception {
+        float alturaMetros = p.height() * 0.3048f;
+        int pesoGr = (int) (p.weight() * 453.592);
 
-        float BMR = (float) super.bmr(genero, edad,alturaMetros, pesoGr );
+        float BMR = (float) super.bmr(p );
 
         //Imprimimos los resultados por pantalla en inglés y en español
-        System.out.println("The person whose height is " + alturaFt + " ft" + " and whose weight is " + pesoLb + " Lb has a BMR of " + BMR + " calories");
+        System.out.println("The person whose height is " + p.height() + " ft" + " and whose weight is " + p.weight() + " Lb has a BMR of " + BMR + " calories");
         System.out.println("La persona con altura " + alturaMetros + " metros " + " y peso de " + pesoGr + " Gr tiene un BMR de " + BMR + " calorias");
 
         return BMR;
