@@ -9,11 +9,11 @@ public class Adapter implements HealthHospital {
     }
 
     @Override
-    public double bmr(Gender genero, int edad, float altura, int peso) {
+    public double bmr(Paciente p) {
         try {
-            float alturaCM = 100*altura;
-            float pesoKg = peso/1000;
-            return healthCalc.basalMetabolicRate(pesoKg, (int) alturaCM, genero, edad);
+            float alturaCM = 100* p.height();
+            float pesoKg = p.weight()/1000;
+            return healthCalc.basalMetabolicRate(p);
         } catch (Exception e) {
             e.printStackTrace(); 
             return 0; 
@@ -21,10 +21,10 @@ public class Adapter implements HealthHospital {
     }
 
     @Override
-    public int pesoIdeal(Gender genero, float altura) {
+    public int pesoIdeal(Paciente p) {
         try {
-            float alturaCM = 100*altura;
-            return (int) healthCalc.idealWeight((int) alturaCM, genero);
+            float alturaCM = 100*p.height();
+            return (int) healthCalc.idealWeight(p);
         } catch (Exception e) {
             e.printStackTrace(); 
             return 0; 
