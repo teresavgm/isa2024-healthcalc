@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import healthcalc.Gender;
 import healthcalc.HealthCalcImpl;
+import healthcalc.Paciente;
 
 import java.awt.event.ActionEvent;
 
@@ -51,9 +52,10 @@ private void calculateIdealWeight() {
 		}else if(genderInt == 1){
 			gender =Gender.MALE;
 		} 
+		Paciente p  = new Paciente(gender, 0, height, 0);
 
 		try {
-			float idealWeight = this.calc.idealWeight(height, gender);
+			float idealWeight = this.calc.idealWeight(p);
 			vista.setResults(idealWeight);
 		} catch (Exception e1) {
 			vista.errorInputsIW(e1.getMessage());
@@ -80,9 +82,9 @@ private void calculateBMR() {
 		}else if(genderText == 1){
 			gender =Gender.MALE;
 		} 
-
+		Paciente p  = new Paciente(gender, age, height, weight);
 		try {
-			float bmr = this.calc.basalMetabolicRate(weight, height, gender, age);
+			float bmr = this.calc.basalMetabolicRate(p);
 			vista.setResults(bmr);
 		} catch (Exception e1) {
 			vista.errorInputsBMR(e1.getMessage());
