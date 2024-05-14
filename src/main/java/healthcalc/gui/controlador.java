@@ -2,6 +2,7 @@ package healthcalc.gui;
 
 import java.awt.event.ActionListener;
 
+import healthcalc.Gender;
 import healthcalc.HealthCalcImpl;
 
 import java.awt.event.ActionEvent;
@@ -43,12 +44,12 @@ private void calculateIdealWeight() {
 	try {
 		int height = Integer.parseInt(vista.getHeightValue().getText());
 		int genderInt = vista.getGender();
-		char gender = 'e';
+		Gender gender = null;
 
 		if(genderInt == 0){
-			gender = 'w';
+			gender = Gender.FEMALE;
 		}else if(genderInt == 1){
-			gender = 'm';
+			gender =Gender.MALE;
 		} 
 
 		try {
@@ -72,12 +73,12 @@ private void calculateBMR() {
 		Integer age = (Integer) vista.getAge().getValue();
 		int genderText = vista.getGender();
 
-		char gender = 'e';
+		Gender gender = null;
 
 		if(genderText == 0){
-			gender = 'w';
+			gender = Gender.FEMALE;
 		}else if(genderText == 1){
-			gender = 'm';
+			gender =Gender.MALE;
 		} 
 
 		try {
