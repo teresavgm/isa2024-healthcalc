@@ -17,7 +17,7 @@ public static HealthCalcImpl getInstance(){
 
     
     @Override
-    public float idealWeight(int height, char gender) throws Exception {
+    public float idealWeight(int height, Gender gender) throws Exception {
         // calculamos su peso ideal siguiendo la formula de Lorentz:
         //For men: IW = height - 100 - (height - 150) / 4)
 	    //For women: IW = height - 100 - (height - 150) / 2.5)
@@ -25,47 +25,50 @@ public static HealthCalcImpl getInstance(){
 
         if(height<=0){
             throw new RuntimeException("Altura introducida no valida: es menor o igual que 0");
-        } else if(gender != 'w' && gender != 'm'){
-            throw new RuntimeException("Genero introducido no valido");
         }else{
-            if(gender == 'w'){
-                idealW = height - 100 - (height - 150) / 2.5f;
-            }else{
-                idealW = height - 100 - (height - 150) / 4;
-            }
+            switch (gender) {
+                case FEMALE:
+                    idealW = height - 100 - (height - 150) / 2.5f;
+                    break;
+                case MALE:
+                    idealW = height - 100 - (height - 150) / 4;
+                    break;
+                default:
+                    throw new RuntimeException("Género introducido no válido");
         }
-    
+        }
         return idealW;
 
 	}
 	
-    public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception{
-        // Calculate the Basal Metabolic Rate (BMR) of a person with the following formula:
-	    //For men: BMR = 10 * weight + 6.25 * height - 5 * age + 5
-	    // For women: BMR = 10 * weight + 6.25 * height - 5 * age - 161
-	  
-        
+    public float basalMetabolicRate(float weight, int height, Gender gender, int age) throws Exception {
+        // Calculamos la Tasa Metabólica Basal (TMB) de una persona con la siguiente fórmula:
+        // Para hombres: BMR = 10 * weight + 6.25 * height - 5 * age + 5
+        // Para mujeres: BMR = 10 * weight + 6.25 * height - 5 * age - 161
+    
         float BMR = 0;
-        
-        if(height<=0){
-            throw new RuntimeException("Altura introducida no valida: es menor o igual que 0");
-        } else if(gender != 'w' && gender != 'm'){
-            throw new RuntimeException("Genero introducido no valido");
-        }else if( weight <= 0){
-            throw new RuntimeException("Peso introducido no valido: es menor o igual que 0");
-
-        }else if(age<=0){
-            throw new RuntimeException("Edad introducida no valida: es menor o igual que 0");
-        }else{
-            if (gender == 'w'){
-                BMR = (10f * weight + 6.25f * height - 5f * age - 161f);
+    
+        if (height <= 0) {
+            throw new RuntimeException("Altura introducida no válida: es menor o igual que 0");
+        } else if (gender == null) {
+            throw new RuntimeException("Género introducido no válido");
+        } else if (weight <= 0) {
+            throw new RuntimeException("Peso introducido no válido: es menor o igual que 0");
+        } else if (age <= 0) {
+            throw new RuntimeException("Edad introducida no válida: es menor o igual que 0");
+        } else {
+            switch (gender) {
+                case FEMALE:
+                    BMR = 10f * weight + 6.25f * height - 5f * age - 161f;
+                    break;
+                case MALE:
+                    BMR = 10f * weight + 6.25f * height - 5f * age + 5f;
+                    break;
+                default:
+                    throw new RuntimeException("Género introducido no válido");
             }
-            else if (gender == 'm'){
-                BMR = (10f * weight + 6.25f * height - 5f * age + 5f);
         }
-
-    }
-        
-    return BMR;
+    
+        return BMR;
     }
 }
