@@ -8,7 +8,7 @@ public class DecoradorAmericano extends DecoratorHealthHospital {
     }
 
     @Override               
-    public int pesoIdeal(char genero,float alturaFt) throws Exception {
+    public int pesoIdeal(Gender genero,float alturaFt) throws Exception {
         //pasamos la altura introducida en pies a metros
         float alturaMetros = alturaFt * 0.3048f;
         float pi = super.pesoIdeal(genero, alturaMetros);
@@ -17,7 +17,7 @@ public class DecoradorAmericano extends DecoratorHealthHospital {
     }
 
     @Override
-    public double bmr(char genero, int edad, float alturaFt, int pesoLb) throws Exception {
+    public double bmr(Gender genero, int edad, float alturaFt, int pesoLb) throws Exception {
         float alturaMetros = alturaFt * 0.3048f;
         int pesoGr = (int) (pesoLb * 453.592);
 
