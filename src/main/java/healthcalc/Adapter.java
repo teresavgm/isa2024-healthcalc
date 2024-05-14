@@ -9,7 +9,7 @@ public class Adapter implements HealthHospital {
     }
 
     @Override
-    public double bmr(char genero, int edad, float altura, int peso) {
+    public double bmr(Gender genero, int edad, float altura, int peso) {
         try {
             float alturaCM = 100*altura;
             float pesoKg = peso/1000;
@@ -21,7 +21,7 @@ public class Adapter implements HealthHospital {
     }
 
     @Override
-    public int pesoIdeal(char genero, float altura) {
+    public int pesoIdeal(Gender genero, float altura) {
         try {
             float alturaCM = 100*altura;
             return (int) healthCalc.idealWeight((int) alturaCM, genero);
