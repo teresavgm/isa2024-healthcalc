@@ -9,12 +9,12 @@ public class DecoradorEuropeo extends DecoratorHealthHospital {
     }
 
     @Override
-    public int pesoIdeal(char genero,float altura) throws Exception {
+    public int pesoIdeal(Gender genero,float altura) throws Exception {
         return super.pesoIdeal(genero, altura);
     }
 
     @Override
-    public double bmr(char genero, int edad, float alturaMetros, int pesoGr) throws Exception {
+    public double bmr(Gender genero, int edad, float alturaMetros, int pesoGr) throws Exception {
         float BMR = (float) super.bmr(genero, edad,alturaMetros, pesoGr );
         double alturaFt = alturaMetros*3.28084;
         int pesoLb = (int) (pesoGr * 0.00220462);
