@@ -23,30 +23,36 @@ public class HealthCalcTest {
 	@Test
 	public void alturaNegIW() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-				assertThrows(RuntimeException.class, () -> hclc.idealWeight(-165,  Gender.MALE));
+		Paciente p = new Paciente(Gender.MALE, 23, -165, 23 );
+				assertThrows(RuntimeException.class, () -> hclc.idealWeight(p));
 	}
 
 	//2. Altura distinta de 0
 	@Test
 	public void altura0() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.idealWeight(0,  Gender.MALE));
+		Paciente p = new Paciente(Gender.MALE, 0, 0, 23 );
+
+		assertThrows(RuntimeException.class, () -> hclc.idealWeight(p));
 	}
 
 	//3. Genero distinto de 'm' y de 'w'
 	@Test
 	public void generoDistinto() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.idealWeight(167, null));
+		Paciente p = new Paciente(null, 127, 165, 23 );
+
+		assertThrows(RuntimeException.class, () -> hclc.idealWeight(p));
 	}
 
 	//4. Valor correcto, 'w'
 	@Test
 	public void ValorCorrectoWIW(){
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-        
+		Paciente p = new Paciente(Gender.FEMALE, 23, 164, 23 );
+
 		try {
-			assertEquals(58.4, hclc.idealWeight(164,  Gender.FEMALE), 1);
+			assertEquals(58.4, hclc.idealWeight(p), 1);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -58,9 +64,10 @@ public class HealthCalcTest {
 	@Test
 	public void ValorCorrectoMIW(){
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-        
+		Paciente p = new Paciente(Gender.MALE, 75, 175, 23 );
+
 		try {
-            assertEquals(69, hclc.idealWeight(175,  Gender.MALE), 0.0001);
+            assertEquals(69, hclc.idealWeight(p), 0.0001);
 		} catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -73,21 +80,25 @@ public class HealthCalcTest {
 	@Test
 	public void alturaNegBMR() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(52, -160,  Gender.MALE, 17));	
+		Paciente p = new Paciente(Gender.MALE, 17, -160, 52 );
+		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(p));	
 	}
 
 	//2. Altura distinta de 0 basalMetabolicRate
 	@Test
 	public void altura0BMR() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(74, 0,  Gender.MALE, 86));	
+		Paciente p = new Paciente(Gender.MALE, 86, 0, 74 );
+		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(p));	
 	}
 
 	//3. Genero distinto de 'w' y de 'm'
 	@Test
 	public void generoDistintoBMR() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(52, 160, null, 17));	
+		Paciente p = new Paciente(null, 17, 160, 52 );
+
+		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(p));	
 	}
 
 
@@ -95,7 +106,9 @@ public class HealthCalcTest {
 	@Test
 	public void peso0BMR() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(0, 192, Gender.MALE, 34));	
+		Paciente p = new Paciente(Gender.MALE, 34, 192, 0 );
+
+		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(p));	
 	}
 
 
@@ -103,7 +116,8 @@ public class HealthCalcTest {
 	@Test
 	public void pesoNegBMR() {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
-		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(-52, 180, Gender.MALE, 17));	
+		Paciente p = new Paciente(Gender.MALE, 17, 180, -52 );
+		assertThrows(RuntimeException.class, () -> hclc.basalMetabolicRate(p));	
 	}
 
 
@@ -113,8 +127,8 @@ public class HealthCalcTest {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
         
 		try {
-
-			float resultado = hclc.basalMetabolicRate(45, 165, Gender.FEMALE, 42);
+			Paciente p = new Paciente(Gender.FEMALE, 42, 165, 45 );
+			float resultado = hclc.basalMetabolicRate(p);
 			assertEquals(1110.25, resultado, 0.0001);
 
         } catch (Exception e) {
@@ -130,7 +144,8 @@ public class HealthCalcTest {
 		HealthCalcImpl hclc =  HealthCalcImpl.getInstance();
         
 		try {
-			float resultado = hclc.basalMetabolicRate(24, 110, Gender.MALE, 6);
+			Paciente p = new Paciente(Gender.MALE, 6, 110, 24 );
+			float resultado = hclc.basalMetabolicRate(p);
             assertEquals(902.5, resultado, 0.0001);
 
 		} catch (Exception e) {
