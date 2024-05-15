@@ -1,0 +1,47 @@
+REFACTORING
+
+
+# 1. Definimos el char género mediante un Enum
+
+Bad Smell -->  TYPE TESTS
+		Para seleccionar el genero utilizamos los caracteres 'w' y 'm', teniendo que comprobar	en todo momento si estos parámetros han sido corrrectamente introducidos. 
+		No podemos invocar su comportamiento sin realizar antes algunas comprobaciones, perdiendo de esta manera polimorfismo.
+Refactoring --> Replace type code with Enum. Creamos un Enum que incluya las 2 opciones posibles, FEMALE y MALE.
+Categoría -->  Attribute refactoring
+Cambios realizados --> Se han tenido que cambiar las declaraciones de este parámetro en los 2 métodos que implementa la calculadora,
+			idealWeight y basalMetabolicRate, y todas sus variantes en las diferentes interfaces y clases usadas: Adapter, DecoradorAmericano,DecoradorEuropeo,
+			DecoradorHealthHospital,HealthCalc, HealthCalcImpl,HealthHospital,HealthStatsProxy. También se han cambiado los tests realizados y el controlador, 
+			para a partir de la entrada de la calculadora declarar genero como Gender.FEMALE o Gender.MALE. Ahora en todos estos casos, cuando se recibe un
+			parámetro que representa el género en vez de ser un parámetro de tipo char, ahora representa uno de los elementos del tipo enum creado Gender.
+Número de cambios manueales--> 11 clases
+
+
+
+# 2. Creamos la interface Person
+
+Bad Smell--> LONG PARAMETER LIST/DATA CLUMPS
+		En varios métodos, con el objetico final de calcular el BMR de un paciente, se pasa como parámetros la altura, el peso, el género y la edad. 
+		De esta manera, se podría considerar que estos métodos reciben demasiados parámetros. Por otra parte, para calcular el peso ideal en diferentes métodos
+		se pasan en múltiples veces como parámetros 'altura' y 'genero'. Lo mismo pasa con los 4 parámetros necesarios para calcular la tasa metabólica basal, que se 
+		utilizan juntos en muchas ocasiones.
+Refactoring --> Introduce Parameter Object. Para resolver este problema introduciremos la clase Paciente que implementa la nueva interfaz introducida Person,
+		la cual recogerá los metodos para solicitar estos atributos. De esta manera, cuando se quiera calcular el peso ideal o el BMR se le pasará 
+		como parámetro un objetoc de tipo Paciente. A partir de este se pordrán obtener los parametros necesarios.
+Categoría --> Class refactoring
+Cambios realizados --> se han cambiado los parámetros de todos los métodos cuyo objetivo era calcular el peso ideal o la tasa
+			metabolica basal y se han sustituido por  un objeto de tipo Paciente en varias clases.
+Número de cambios --> 8
+
+
+
+# 3.Creamos las clases CardiovascularMetrics y MetabolicMetrics
+Bad Smell--> LARGE/GOD CLASS
+	     La clase HealCalcImpl tiene demasiadas responsabilidades al ser enteramente la que lleva a cabo todos los calculos que puede llevar a cabo la calculadora, cayendo
+	     en esta toda la responsabilidad.
+Refactoring --> Extract(sub)Class
+Categoría --> Class refactoring 
+Cambios realizados --> Van a ser creadas 2 clases, CardiovascularMetrics y MetabolicMetrics. Cada una tendrá un método para
+			calcular el peso ideal y la tasa metabólica basal respectivamente.La clase HealthCalcImpl tendrá como atributo
+			un objeto de cada clase para poder dirigir el uso de estas funciones.
+Número de cambios --> Se han creado 2 clases, y se ha modificado la clase HealthCalcImpl,3.
+
